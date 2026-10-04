@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Trick – Reading Time 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#171A3A;--bg2:#252A5C;--ink:#F7F5FF;--sun:#FFB627;--teal:#2EC4B6;--rose:#FF5D73;--card:#FFFFFF;--cardink:#1B1F3B;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171A3A}}
+:root[data-theme="dark"]{--bg:#171A3A}
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{background:radial-gradient(circle at 80% 0,#3a2f6e 0,var(--bg) 55%);color:var(--ink);font-family:Nunito,system-ui,sans-serif;font-weight:600;font-size:clamp(16px,2vw,22px);overflow:hidden}
+h1,h2,.f{font-family:Fredoka,system-ui,sans-serif;margin:0}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:6px;background:linear-gradient(90deg,var(--sun),var(--rose));transition:width .4s;z-index:5}
+.s{display:none;height:100%;padding:28px 6vw 90px;overflow-y:auto}.s.on{display:block}
+h2{font-size:clamp(26px,4vw,46px);color:var(--sun);margin-bottom:6px}
+.sub{opacity:.85;margin:0 0 18px}
+.hero{text-align:center;padding-top:6vh}
+.hero h1{font-size:clamp(64px,13vw,150px);line-height:.95;color:var(--sun);text-shadow:6px 6px 0 var(--rose);transform:rotate(-2deg)}
+.hero .f{font-size:clamp(20px,3vw,34px);margin:22px 0}
+.btn{font:700 1em Fredoka,sans-serif;border:0;border-radius:40px;padding:12px 24px;background:var(--sun);color:var(--cardink);cursor:pointer;box-shadow:0 5px 0 #b97f00;margin:4px}
+.btn:active{transform:translateY(4px);box-shadow:none}.btn.alt{background:var(--teal);box-shadow:0 5px 0 #1b8278}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:var(--card);color:var(--cardink);border-radius:22px;padding:18px;cursor:pointer;border:4px solid transparent;transition:.2s}
+.card:focus-visible,.btn:focus-visible,.tab:focus-visible{outline:4px solid var(--teal);outline-offset:3px}
+.char{text-align:center;min-height:190px}.char .e{font-size:54px}.char b{font:700 1.3em Fredoka}.char p{margin:6px 0 0;display:none}.char.open p{display:block}.char.open{border-color:var(--teal)}
+.seq .card{display:flex;gap:12px;align-items:center;margin-bottom:12px;padding:14px 18px}
+.seq .n{min-width:40px;height:40px;border-radius:50%;background:#e4e4f2;display:grid;place-items:center;font:700 1.2em Fredoka}
+.seq .ok{border-color:var(--teal);background:#dffaf6;cursor:default}.seq .ok .n{background:var(--teal);color:#fff}
+.shake{animation:sh .3s;border-color:var(--rose)}@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.tab{font:700 1em Fredoka;padding:10px 20px;border-radius:30px;border:3px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tab.on{background:var(--ink);color:var(--bg)}
+.q{background:var(--card);color:var(--cardink);border-radius:20px;padding:16px 20px;margin-bottom:14px}
+.q p{margin:0 0 10px;font-weight:800}
+.o{display:inline-block;margin:4px 6px 4px 0;padding:8px 16px;border-radius:30px;background:#ecebfa;border:3px solid transparent;cursor:pointer;font:inherit;color:inherit}
+.o.good{background:#cdf5ef;border-color:var(--teal)}.o.bad{background:#ffe0e4;border-color:var(--rose)}
+.m{display:none;margin-top:10px;padding:10px 14px;border-radius:14px;background:#fff1cf}.m.show{display:block}
+.starter{background:#2d3270;border-left:6px solid var(--sun);padding:10px 16px;border-radius:12px;margin:8px 0}
+.theme{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.theme .box{width:34px;height:34px;border-radius:8px;border:3px solid var(--cardink);flex:none;display:grid;place-items:center;font-weight:800}
+.fb{font-size:.85em;opacity:.8;display:none}.theme.res .fb{display:block}
+.theme.yes{background:#dffaf6}.theme.no{background:#fff}
+#nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:10px 5vw calc(10px + env(safe-area-inset-bottom,0px));background:#0e1030cc;backdrop-filter:blur(6px);z-index:5}
+#stars{font:700 1.1em Fredoka;color:var(--sun)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div id="bar"></div>
+
+<section class="s hero on">
+<div class="f" style="color:var(--teal)">Reading Time 1 · Grade 5</div>
+<h1>The Trick</h1>
+<div class="f">What do you think "the trick" means?</div>
+<button class="btn" onclick="show('t1')">Show the meaning</button>
+<div class="m" id="t1" style="max-width:640px;margin:16px auto;color:var(--cardink);font-size:1.2em">A <b>trick</b> is a clever plan to make someone believe something that is not true.<br>👀 Who tricks who? Let's find out!</div>
+<p class="sub">Lesson goal: I can read a story and answer questions about characters, events and themes.</p>
+</section>
+
+<section class="s">
+<h2>Who are the main characters?</h2><p class="sub">Tap a card to meet each character.</p>
+<div class="grid">
+<div class="card char" tabindex="0" role="button"><div class="e">🧔</div><b>Musa</b><p>Hakan's neighbour and best friend. He needs a horse. He is clever and has a plan!</p></div>
+<div class="card char" tabindex="0" role="button"><div class="e">👳</div><b>Hakan</b><p>Musa's friend. He wants to sell his sick horse, but he learns to be honest.</p></div>
+<div class="card char" tabindex="0" role="button"><div class="e">👩</div><b>Pinar</b><p>Hakan's wife. She is angry because selling a sick horse isn't honest.</p></div>
+<div class="card char" tabindex="0" role="button"><div class="e">🐴</div><b>Atik</b><p>Hakan's horse. He was strong, but now he is old and sick.</p></div>
+</div></section>
+
+<section class="s seq">
+<h2>Put the story in order</h2><p class="sub">Tap the events in the right order, from first to last.</p>
+<div id="sq"></div><button class="btn alt" onclick="initSeq()">Start again</button>
+</section>
+
+<section class="s">
+<h2>Choose your level</h2><p class="sub">Pick a challenge. Tap an answer.</p>
+<div class="tabs" id="tabs"></div><div id="qs"></div>
+</section>
+
+<section class="s">
+<h2>What are the themes?</h2><p class="sub">Tick (✓) the main themes. Then check.</p>
+<div id="th"></div><button class="btn" onclick="checkTh()">Check</button>
+</section>
+
+<section class="s">
+<h2>Work in pairs</h2><p class="sub">Choose your level and give reasons.</p>
+<div class="tabs" id="dt"></div><div id="dq"></div>
+</section>
+
+<section class="s">
+<h2>Your ending</h2><p class="sub">Imagine Musa really broke his leg and Hakan didn't tell the truth. How is the ending different?</p>
+<div class="tabs" id="et"></div><div id="eq"></div>
+<p class="f" style="font-size:1.4em;margin-top:24px;color:var(--teal)">Exit ticket: Which friend was better, Hakan or Musa? Why?</p>
+</section>
+
+<div id="nav"><button class="btn" onclick="go(-1)">Back</button><span id="stars">⭐ 0</span><button class="btn" onclick="go(1)">Next</button></div>
+
+<script>
+var S=[].slice.call(document.querySelectorAll('.s')),i=0,score=0;
+function star(n){score+=n;document.getElementById('stars').textContent='⭐ '+score}
+function go(d){S[i].classList.remove('on');i=Math.max(0,Math.min(S.length-1,i+d));S[i].classList.add('on');S[i].scrollTop=0;document.getElementById('bar').style.width=(i+1)/S.length*100+'%'}
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+document.getElementById('bar').style.width=100/S.length+'%';
+function show(id){document.getElementById(id).classList.toggle('show')}
+document.querySelectorAll('.char').forEach(function(c){function t(){c.classList.toggle('open')}c.onclick=t;c.onkeydown=function(e){if(e.key==='Enter'||e.key===' ')t()}});
+
+/* sequence */
+var EV=["Hakan and Pinar decide to sell sick Atik.","Musa hears the plan from his garden.","Hakan offers Atik to Musa.","Musa shouts that he broke his leg.","Hakan tells Musa the truth.","Hakan gives Atik to Musa as a present."];
+var order=[3,0,5,2,4,1],next;
+function initSeq(){next=0;var h='';order.forEach(function(k){h+='<div class="card" data-k="'+k+'" tabindex="0" role="button"><span class="n">?</span><span>'+EV[k]+'</span></div>'});
+var w=document.getElementById('sq');w.innerHTML=h;w.querySelectorAll('.card').forEach(function(c){function t(){var k=+c.dataset.k;if(c.classList.contains('ok'))return;
+if(k===next){c.classList.add('ok');c.querySelector('.n').textContent=k+1;next++;star(1)}else{c.classList.remove('shake');void c.offsetWidth;c.classList.add('shake')}}
+c.onclick=t;c.onkeydown=function(e){if(e.key==='Enter')t()}})}
+initSeq();
+
+/* levels */
+function mk(levels,tabsId,boxId,render){var T=document.getElementById(tabsId);Object.keys(levels).forEach(function(n,j){var b=document.createElement('button');b.className='tab'+(j?'':' on');b.textContent=n;b.onclick=function(){T.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');render(levels[n],document.getElementById(boxId))};T.appendChild(b)});render(levels[Object.keys(levels)[0]],document.getElementById(boxId))}
+function quiz(items,box){box.innerHTML='';items.forEach(function(it){var d=document.createElement('div');d.className='q';var h='<p>'+it.q+'</p>';
+if(it.o){it.o.forEach(function(o,k){h+='<button class="o" data-k="'+k+'">'+o+'</button>'})}else{h+='<button class="btn alt" style="font-size:.9em">Show model answer</button><div class="m">'+it.m+'</div>'}
+d.innerHTML=h;box.appendChild(d);
+if(it.o){var done=0;d.querySelectorAll('.o').forEach(function(b){b.onclick=function(){if(done)return;if(+b.dataset.k===it.a){b.classList.add('good');done=1;star(it.p||1)}else b.classList.add('bad')}})}
+else{d.querySelector('.btn').onclick=function(){d.querySelector('.m').classList.toggle('show')}}})}
+mk({"🌱 Level 1: True or False":[
+{q:"Pinar was angry with Hakan.",o:["True","False"],a:0},
+{q:"Musa knew the horse was sick.",o:["True","False"],a:0},
+{q:"Musa really broke his leg.",o:["True","False"],a:1},
+{q:"The hospital was three kilometres away.",o:["True","False"],a:1,},
+{q:"Hakan gave Atik to Musa at the end.",o:["True","False"],a:0}],
+"🌿 Level 2: Choose":[
+{q:"Why was Pinar angry?",o:["Hakan lost a horse","Selling a sick horse isn't honest","Musa was late"],a:1},
+{q:"How did Musa know Atik was sick?",o:["He heard Hakan and Pinar","Atik told him","A doctor said"],a:0},
+{q:"What accident did Musa say he had?",o:["He fell off a horse","He fell off a chair and broke his leg","He burned his hand"],a:1},
+{q:"What did Musa want Hakan to do?",o:["Take him to hospital on Atik","Buy him food","Call Pinar"],a:0},
+{q:"Why did Hakan tell the truth?",o:["He was bored","He thought it was an emergency","Pinar was there"],a:1}],
+"🔥 Level 3: Explain":[
+{q:"Why did Hakan think selling Atik was 'a good thing' for Musa? (Because…)",m:"Because Musa didn't have much money, so Hakan wanted to give him a very good price. But Atik was sick, so it wasn't really good or honest."},
+{q:"Why was the hospital trip a problem for Atik?",m:"The hospital was thirty kilometres away and the ride takes three hours. Atik wasn't strong or healthy, so he couldn't carry Musa that far."},
+{q:"Why did Hakan decide to tell Musa the truth, even if he lost the 'sale'?",m:"Musa's health was more important than money. Hakan cared about his friend, so he was honest."},
+{q:"How was Musa's trick a 'lesson' for Hakan?",m:"Musa made Hakan feel what could happen when you lie to a friend. Hakan understood and said sorry."}]},"tabs","qs",quiz);
+
+/* themes */
+var TH=[["You should be kind to friends or you will lose them.",1,"Yes! Hakan nearly lost his friend."],["Never forgive someone who hurts you.",0,"No. Musa forgave Hakan."],["It's important to be honest.",1,"Yes! The story's big message."],["You should be kind to animals.",0,"Not the main theme (but a sick horse shouldn't travel far!)."],["Sometimes a bad experience can show you that you're wrong.",0,"Discuss with your partner: did Hakan learn from his mistake?"],["It's important to say sorry when you hurt a friend.",1,"Yes! Hakan said sorry."]];
+var tw=document.getElementById('th');TH.forEach(function(t,k){var d=document.createElement('div');d.className='card theme';d.innerHTML='<span class="box"></span><div>'+t[0]+'<div class="fb">'+t[2]+'</div></div>';d.onclick=function(){var b=d.querySelector('.box');b.textContent=b.textContent?'':'✓'};tw.appendChild(d)});
+function checkTh(){var r=0;tw.querySelectorAll('.theme').forEach(function(d,k){var on=!!d.querySelector('.box').textContent;d.classList.add('res');d.classList.add(TH[k][1]?'yes':'no');if(on===!!TH[k][1])r++});star(r)}
+
+/* pair talk */
+function talk(items,box){box.innerHTML='';items.forEach(function(x){var d=document.createElement('div');d.className='q';d.innerHTML='<p>'+x[0]+'</p>'+(x[1]?'<div class="starter">'+x[1]+'</div>':'');box.appendChild(d)})}
+mk({"🌱 Support":[["Do you like Musa or Hakan?","I like … because he is …"],["Was the trick funny?","Yes, it was … because …"],["Who was kind in the story?","… was kind because …"]],
+"🌿 Core":[["What two tricks happen in the story?","First, … Then, …"],["Do you think both tricks were wrong?","I think … because …"],["Did Hakan change at the end?","At the beginning he was … but at the end he …"]],
+"🔥 Challenge":[["What did you think of Hakan at the start and at the end? Did your opinion change?","At first I thought … However, now I think …"],["Did Musa change during the story?",""],["Who was a better friend – Hakan or Musa? Give two reasons.","In my opinion … Also, …"]]},"dt","dq",talk);
+
+/* endings */
+mk({"🌱 Draw & say":[["Draw a new ending. Then say one sentence.","In my ending, Hakan …"]],
+"🌿 Write 3 sentences":[["Write 3 sentences about your new ending.","If Hakan didn't tell the truth, Musa would … / The ending would be … because …"]],
+"🔥 Write a paragraph":[["Write a short paragraph. How would the ending be different? Which ending do you prefer and why?","Although … / On the other hand … / I prefer … because …"]]},"et","eq",talk);
+</script></body></html>
